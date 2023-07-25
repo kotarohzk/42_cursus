@@ -6,7 +6,7 @@
 /*   By: scott <scottchowww@gmail.com>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/25 15:35:04 by scott             #+#    #+#             */
-/*   Updated: 2023/07/25 15:47:44 by scott            ###   ########.fr       */
+/*   Updated: 2023/07/25 15:49:42 by scott            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 	if (!buf)
 		return (NULL);
 	i = 0;
-	while (i < ft_strlen)
+	while (s[i])
 	{
 		buf[i] = f(i, s[i]);
 		i++;
