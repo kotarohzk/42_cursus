@@ -6,7 +6,7 @@
 /*   By: scott <scottchowww@gmail.com>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/25 10:26:02 by scott             #+#    #+#             */
-/*   Updated: 2023/07/25 12:42:15 by scott            ###   ########.fr       */
+/*   Updated: 2023/07/25 12:55:13 by scott            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ char	**ft_split(char const *s, char c)
 	size_t	i;
 	size_t	j;
 
-	if (!s)
+	if (!s || !c)
 		return (NULL);
 	buf_array = malloc(sizeof(char *) * get_number_of_elements(s, c));
 	if (!buf_array)
