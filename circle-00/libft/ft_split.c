@@ -6,7 +6,7 @@
 /*   By: scott <scottchowww@gmail.com>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/25 10:26:02 by scott             #+#    #+#             */
-/*   Updated: 2023/07/25 12:55:13 by scott            ###   ########.fr       */
+/*   Updated: 2023/07/26 14:16:35 by scott            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,17 @@ static int	get_number_of_elements(char const *s, char c)
 	return (i + 1);
 }
 
+static char	**free_elements(char **s, int i)
+{
+	int	j;
+
+	j = -1;
+	while (++j < i)
+		free(s[j]);
+	free(s);
+	return (NULL);
+}
+
 char	**ft_split(char const *s, char c)
 {
 	char	**buf_array;
@@ -45,11 +56,15 @@ char	**ft_split(char const *s, char c)
 		if (s[i] == c)
 		{
 			buf_array[j] = ft_substr(s, 0, i);
+			if (!buf_array[j])
+				return (free_elements(buf_array, j));
 			s = s + i + 1;
 			i = -1;
 			j++;
 		}
 	}
 	buf_array[j] = ft_substr(s, 0, ft_strlen(s));
+	if (!buf_array[j])
+		return (free_elements(buf_array, j));
 	return (buf_array);
 }
