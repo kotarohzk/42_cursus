@@ -6,7 +6,7 @@
 /*   By: scott <scottchowww@gmail.com>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/26 11:18:31 by scott             #+#    #+#             */
-/*   Updated: 2023/07/26 12:23:45 by scott            ###   ########.fr       */
+/*   Updated: 2023/07/26 12:45:05 by scott            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,4 +16,5 @@ void	ft_lstdelone(t_list *lst, void (*del)(void *))
 {
 	del(lst->content);
 	free(lst);
+	lst = NULL;
 }
